@@ -1,12 +1,12 @@
 package it.unibs.ingSW;
 
-public class ElementoPN implements Elemento<ElementoPN>{
+public class ElementoPNP implements Elemento<ElementoPNP>{
 	private PostoPN posto;
-	private TransizioneN transizione;
+	private TransizionePNP transizione;
 	private boolean verso;
 	private int peso;
 	
-	public ElementoPN(PostoPN posto, TransizioneN transizione, boolean verso, int peso) {
+	public ElementoPNP(PostoPN posto, TransizionePNP transizione, boolean verso, int peso) {
 		this.verso = verso;
 		this.posto = posto;
 		this.transizione = transizione;
@@ -21,7 +21,7 @@ public class ElementoPN implements Elemento<ElementoPN>{
 		this.peso = peso;
 	}
 
-	public void setTransizione(TransizioneN transizione) {
+	public void setTransizione(TransizionePNP transizione) {
 		this.transizione = transizione;
 	}
 
@@ -37,7 +37,7 @@ public class ElementoPN implements Elemento<ElementoPN>{
 		this.posto = posto;
 	}
 	
-	public TransizioneN getTransizione() {
+	public TransizionePNP getTransizione() {
 		return transizione;
 	}
 	
@@ -55,14 +55,13 @@ public class ElementoPN implements Elemento<ElementoPN>{
 		return verso;
 	}
 	
-	public boolean isEqual(ElementoPN ePar)
+	public boolean isEqual(ElementoPNP ePar)
 	{
 		return (ePar.getPosto().isEqual(posto) && ePar.getTransizione().isEqual(transizione) && (ePar.getVerso() == verso));
-		
 	}
 	
 	public String print(){
-		String out = "ID posto: " + posto.getID() + "\nMarcatura: " + posto.getMarcatura() + "\nID transizione: " + transizione.getID() + "\nPeso: " + this.peso;
+		String out = "ID posto: " + posto.getID() + "\nMarcatura: " + posto.getMarcatura() + "\nID transizione: " + transizione.getID() + "\nPeso: " + this.peso + "\nPriorità: " + transizione.getPriorità();
 		if(verso)
 			out += "\nVerso: da posto a transizione";
 		else 
